@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Connects bodyParser to json
 app.use(bodyParser.json())
 
+// CORS prevents error while while reading JSON data from the Express server
 const cors = require('cors');
 
 app.use(cors());
@@ -20,7 +21,7 @@ res.header("Access-Control-Allow-Headers",
 next();
 });
 
-
+// Declares address of JSON within localhost:3000
 app.post('/api/books', (req, res) => {
     console.log(req.body); 
     res.send('Book Added')
@@ -31,6 +32,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+//JSON data
 app.get('/api/books', (req, res)=>{
     const books = [
         {
